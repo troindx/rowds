@@ -1,4 +1,4 @@
-rowds - VERSION 1.0
+R.O.W.D.S - VERSION 1.0
 =====
 
 Rapid Online Web Development system "ROWDS" is an easy-to-use faster-to-learn Free PHP Framework for web developers that don't have enough time to fiddle with more complex Frameworks, but don't want their code to look rough and messy.
