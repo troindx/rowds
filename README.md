@@ -1,14 +1,11 @@
 rowds - VERSION 1.0
 =====
 
-Rapid Online Web Development system
+Rapid Online Web Development system "ROWDS" is an easy-to-use faster-to-learn Free PHP Framework for web developers that don't have enough time to fiddle with more complex Frameworks, but don't want their code to look rough and messy.
 
-Welcome to my new project "ROWDS".
-ROWDS is an easy to use PHP Framework. You can learn how to use it in under 20 minutes and get going on programming with your project
-Forget about learning very difficult heavy frameworks. Forget about coding without a style or a methodology
-ROWDS offers you a clean lightweight Model View Controller Framework for you to work with any project you might need!
+"ROWDS" is a powerful tool that offers you a clean lightweight Model-View-Controller software architecture pattern for you to develop your applications in a short period of time while mantaining good quality code. It's fast, powerful, flexible, reliable and extremely easy to use. You can learn everything you need to know about it in under 20 minutes!
 
-comments and bugs and anything you want : troindx@gmail.com
+You can send comments and bugs and anything you want to troindx@gmail.com
 
 ===== INSTALL INSTRUCTIONS =====
 No installing needed.
