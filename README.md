@@ -9,3 +9,8 @@ Forget about learning very difficult heavy frameworks. Forget about coding witho
 ROWDS offers you a clean lightweight Model View Controller Framework for you to work with any project you might need!
 
 comments and bugs and anything you want : troindx@gmail.com
+
+===== INSTALL INSTRUCTIONS =====
+No installing needed.
+Decompress zipfile on your htdocs (or similar) web server folder.
+DONE!
