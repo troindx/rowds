@@ -8,6 +8,7 @@ Rapid Online Web Development system "ROWDS" is an easy-to-use faster-to-learn Fr
 You can send comments and bugs and anything you want to troindx@gmail.com
 
 ===== INSTALL INSTRUCTIONS =====
+
 No installing needed.
 Decompress zipfile on your htdocs (or similar) web server folder.
 DONE!
