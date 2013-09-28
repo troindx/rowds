@@ -21,6 +21,8 @@ $action = $router->loadAction($module);
 //Load the action
 $loader->setAction($action);
 $loader->setRoute($route);
+$module->preEvent();
 $module->$action();
+$module->postEvent();
 
 ?>

@@ -67,5 +67,15 @@ class ViewHelper
 		
 	}
 
+	public function preEvent()
+	{
+
+	}
+
+	public function postEvent()
+	{
+
+	}
+
 }
 ?>
