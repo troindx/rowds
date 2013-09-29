@@ -26,12 +26,12 @@ function Translator()
 
 	this.loadLanguage = function(lang)
 	{
-		this.strings = JSON.parse(that.loadScript('lang/'+lang+'/exposed.js'));
+		that.loadScript('lang/'+lang+'/exposed.js');
 	};
 
 	this.trans = function(arg)
 	{
-		return strings[arg];
+		return localStorage[arg];
 	};
 	
 };
