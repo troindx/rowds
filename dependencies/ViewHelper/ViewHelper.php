@@ -28,6 +28,7 @@ class ViewHelper
 		$this->translator = new Translator();
 		$this->translator->load(get_class($this));
 		$this->template = "default";
+		$this->view = new stdClass;
 	}
 	
 	function super() {
