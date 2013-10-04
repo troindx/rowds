@@ -4,9 +4,9 @@ class Session
 	public function __construct()
 	{
 		Session_start();
-		if (!isset($_SESSION['login']) )
+		if (!isset($_SESSION['AUTH_TOKEN']) )
 		{
-			$_SESSION['login'] = 'anon';
+			$_SESSION['AUTH_TOKEN'] = AUTH_TOKEN_DEFAULT;
 		}
 	}
 	
