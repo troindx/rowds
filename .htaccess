@@ -1,4 +1,6 @@
 RewriteEngine On    # Turn on the rewriting engine
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule ^ - [L]
 RewriteRule     ^([A-Za-z0-9-]+)/?$ index.php?option=$1&action=main [NC,L]
 RewriteRule     ^([A-Za-z0-9-]+)?$index.php?option=$1&action=main [NC,L]
 RewriteRule     ^[A-Za-z0-9-]+/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2 [NC,L]
