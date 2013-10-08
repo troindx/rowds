@@ -1,7 +1,10 @@
+<script type="text/javascript">
 function Translator()
 {
 	var strings;
 	var that = this;
+	var BASE_URL = '<?php echo BASE_URL; ?>';
+
 	this.loadScript = function(url, callback)
 	{
 	    // Adding the script tag to the head as suggested before
@@ -26,7 +29,7 @@ function Translator()
 
 	this.loadLanguage = function(lang)
 	{
-		that.loadScript('lang/'+lang+'/exposed.js');
+		that.loadScript(BASE_URL+'lang/'+lang+'/exposed.js');
 	};
 
 	this.trans = function(arg)
@@ -35,3 +38,4 @@ function Translator()
 	};
 	
 };
+</script>

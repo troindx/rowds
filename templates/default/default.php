@@ -3,10 +3,11 @@
 <head>
 <title><?php echo WEB_NAME ?></title>
 <!--<link href='http://fonts.googleapis.com/css?family=Prosto+One' rel='stylesheet' type='text/css'> -->
-<link rel="stylesheet" href="<?php echo "templates/$template/css/style.css" ?>" type="text/css" />
-<link rel="shortcut icon" href="<?php echo "templates/$template/img/icon.png" ?>">
+<link rel="stylesheet" href="<?php echo BASE_URL."templates/$template/css/style.css" ?>" type="text/css" />
+<link rel="shortcut icon" href="<?php echo BASE_URL."templates/$template/img/icon.png" ?>">
+<?php include("templates/$template/js/Translator.php") ?>
 <!--[if lte IE 7]>
-<link rel="stylesheet" href="<?php echo "templates/$template/css/ieonly.css" ?>" type="text/css" />
+<link rel="stylesheet" href="<?php echo BASE_URL."templates/$template/css/ieonly.css" ?>" type="text/css" />
 <![endif]-->
 <?php global $loader; global $route; $loader->printScripts($route); ?>
 </head>

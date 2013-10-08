@@ -3,6 +3,7 @@
 define("MODULE_DEFAULT", "main");
 define("ACTION_DEFAULT","mainController");
 define("MODULE_NOT_FOUND","m404");
+define("BASE_URL","http://localhost/rowds/");
 
 
 //Application defines, up to you to write any necessary defines

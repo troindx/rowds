@@ -77,13 +77,13 @@ class AutoLoader
 			
 			foreach($this->scripts as $script)
 			{
-				echo "<script language='javascript' src='views/$view/js/common/$script'></script>";
+				echo "<script language='javascript' src='".BASE_URL."views/$view/js/common/$script'></script>";
 			}
 		}
 		global $action;
 		if (is_file("views/$view/js/$action.js"))
 		{
-			echo "<script language='javascript' src='views/$view/js/$action.js'></script>";
+			echo "<script language='javascript' src='".BASE_URL."views/$view/js/$action.js'></script>";
 		}
 	}
 }
