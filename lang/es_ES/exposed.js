@@ -1,2 +1,2 @@
-localStorage['LANG_CONGRATULATIONS'] ="Congratulations! ROWDS has been correctly set up in your system!"
+localStorage['LANG_CONGRATULATIONS'] ="Enhorabuena, ROWDS se ha instalado correctamente!"
 localStorage['LANG_FOO']= 'bar';
