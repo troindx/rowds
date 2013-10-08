@@ -51,7 +51,6 @@ Class Translator
 
 	public function trans($key)
 	{
-		echo $this->strings[$key];
 		return $this->strings[$key];
 	}
 
