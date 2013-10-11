@@ -24,5 +24,4 @@ $loader->setRoute($route);
 $module->preEvent();
 $module->$action();
 $module->postEvent();
-
 ?>
