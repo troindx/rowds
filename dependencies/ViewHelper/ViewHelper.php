@@ -1,8 +1,4 @@
 <?php
-global $view;
-global $translator;
-global $name;
-global $actionView;
 use Dependencies\ErrorModule;
 use Dependencies\Translator;
 class ViewHelper
@@ -59,6 +55,7 @@ class ViewHelper
 			die();
 			//TODO , this has to be made better on the next iteration
 		}
+		global $view, $translator, $name, $actionView;
 		$view = $this->view;
 		$translator = $this->translator;
 		$name = get_class($this);
