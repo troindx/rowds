@@ -33,7 +33,7 @@ $(window).load(function() {
 		    	var tmp = $.parseJSON(jqxhr.responseText);
 		    	$('.assassinName').html(tmp.name +" tu objetivo es:");
 		    	localStorage['id'] = tmp.id;
-		    	$('.assassinImg').html('<img src="views/main/img/'+tmp.imageURL +'.jpg"></img>');
+		    	$('.assassinImg').html('<img src="modules/main/img/'+tmp.imageURL +'.jpg"></img>');
 		    	$('.infoAssassin').removeClass('hide');
 		    	$('.infoAssassin').fadeIn();
 
@@ -42,7 +42,7 @@ $(window).load(function() {
 				    if (jqxhr2.responseText != "-1")
 				    {
 				    	var tmp2 = $.parseJSON(jqxhr2.responseText);
-				    	$('.victimIMG').html('<img src="views/main/img/'+tmp2.imageURL +'.jpg"></img>');
+				    	$('.victimIMG').html('<img src="modules/main/img/'+tmp2.imageURL +'.jpg"></img>');
 				    	$('.victimInfo').html(tmp2.info);
 				    	$('.victimName').html(tmp2.name);
 				    }
@@ -89,7 +89,7 @@ $(window).load(function() {
 				    $('.info').html('Asesinato perpetrado con éxito, asignando un nuevo objetivo...');
 				    $('.info').fadeIn(400, function(){$('.info').fadeOut(1500)});
 				    var tmp2 = $.parseJSON(jqxhr.responseText);
-				    $('.victimIMG').html('<img src="views/main/img/'+tmp2.imageURL +'.jpg"></img>');
+				    $('.victimIMG').html('<img src="modules/main/img/'+tmp2.imageURL +'.jpg"></img>');
 				    $('.victimInfo').html(tmp2.info);
 				    $('.victimName').html(tmp2.name);
 

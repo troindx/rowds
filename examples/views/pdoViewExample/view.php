@@ -1,5 +1,5 @@
 <div class="login">
-  <div class = "logo"><img src="views/main/img/killercorp.png"></img></div>
+  <div class = "logo"><img src="modules/main/img/killercorp.png"></img></div>
   <div class="info"></div>
 <input type="text" placeholder="<? echo $translator->trans("INSERT_CODE") ?>"></input>
 <div class = 'loginButton hide'><?php echo utf8_decode($translator->trans('LOGIN'));?></div>

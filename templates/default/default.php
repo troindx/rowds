@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id="tablecontent" >
-	<?php include("views/$name/$actionView.php");?>
+	<?php include("modules/$name/$actionView.php");?>
 		<div class="clearer"></div>
 	</div>
 </body>

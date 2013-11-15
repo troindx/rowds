@@ -6,7 +6,7 @@ class ModuleRouter
 		if (isset($_GET["option"]))
 		{
 			$variable = $_GET["option"];
-			if (file_exists("views/$variable/$variable.php"))
+			if (file_exists("modules/$variable/$variable.php"))
 			{
 				
 				return $variable;

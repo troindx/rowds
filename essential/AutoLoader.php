@@ -61,9 +61,9 @@ class AutoLoader
 	
 	public function loadScripts($view)
 	{
-		if (is_dir("views/$view/js/common"))
+		if (is_dir("modules/$view/js/common"))
 		{
-			$this->scripts = scandir ("views/$view/js/common");
+			$this->scripts = scandir ("modules/$view/js/common");
 			$bad = array(".", "..", ".DS_Store", "_notes", "Thumbs.db","index.html");
 			$this->scripts = array_diff($this->scripts, $bad);
 		}
@@ -77,13 +77,22 @@ class AutoLoader
 			
 			foreach($this->scripts as $script)
 			{
-				echo "<script language='javascript' src='".BASE_URL."views/$view/js/common/$script'></script>";
+				echo "<script language='javascript' src='".BASE_URL."modules/$view/js/common/$script'></script>";
 			}
 		}
 		global $action;
-		if (is_file("views/$view/js/$action.js"))
+		if (is_file("modules/$view/js/$action.js"))
 		{
-			echo "<script language='javascript' src='".BASE_URL."views/$view/js/$action.js'></script>";
+			echo "<script language='javascript' src='".BASE_URL."modules/$view/js/$action.js'></script>";
+		}
+	}
+
+	public function printJSController($view)
+	{
+		global $action;
+		if (is_file("modules/$view/js/$action.js"))
+		{
+			echo "<script language='javascript' src='".BASE_URL."modules/$view/js/$action.js'></script>";
 		}
 	}
 }
