@@ -1,4 +1,5 @@
 <?php
+
 use Dependencies\ErrorModule;
 use Dependencies\Translator;
 class ViewHelper
@@ -25,6 +26,8 @@ class ViewHelper
 		$this->translator->load(get_class($this));
 		$this->template = "default";
 		$this->view = new stdClass;
+		global $ErrorModule;
+		$ErrorModule = $this->errors;
 	}
 	
 	function super() {
@@ -47,20 +50,27 @@ class ViewHelper
 		$this->generate();
 	}
 	
-	public function generate($file ='view')
+	public function generate()
 	{
 		if ($this->errors->hasErrors())
 		{
 			$this->errors->printErrors();
-			die();
+			exit(10);
 			//TODO , this has to be made better on the next iteration
 		}
-		global $view, $translator, $name, $actionView;
+		global $translator, $view, $name, $template, $actionView;
 		$view = $this->view;
 		$translator = $this->translator;
 		$name = get_class($this);
 		$template = $this->getTemplate();
-		$actionView = $file;
+		if (func_num_args() == 0)
+		{
+			$actionView = $name."View";
+		}
+		else
+		{
+			$actionView = func_get_arg(0);
+		}
 		include("templates/$template/$template.php");
 		
 	}

@@ -12,7 +12,7 @@ $router = new ModuleRouter();
 $route = $router->loadRoute();
 
 //load the default route and it's handlers
-include("modules/$route/$route.php");
+include("modules/$route/$route"."Controller.php");
 $loader->loadHandlers("modules/$route/handlers");
 $loader->loadScripts($route);
 $module = new $route;

@@ -6,7 +6,7 @@ class ModuleRouter
 		if (isset($_GET["option"]))
 		{
 			$variable = $_GET["option"];
-			if (file_exists("modules/$variable/$variable.php"))
+			if (file_exists("modules/$variable/$variable"."Controller.php"))
 			{
 				
 				return $variable;
@@ -37,15 +37,13 @@ public function loadAction($m)
 			else
 			{
 				
-				return ACTION_DEFAULT;
+				return ACTION_DEFAULT."Controller";
 			}
 		}
 		else
 		{
-			return ACTION_DEFAULT;
+			return ACTION_DEFAULT."Controller";
 		}
 	}
 }
-
-
 ?>
