@@ -13,7 +13,7 @@ class ViewHelper
 	public function getView($controller)
 	{
 		global $template, $action, $view, $name;
-		
+		$controller.='Controller';
 		//Guardamos el estado del framework
 		$tmpView = $view;
 		$tmpName = $name;
