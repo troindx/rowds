@@ -10,9 +10,17 @@ class ViewHelper
 	protected $template;
 	protected $generated;
 
-	public function getView($controller)
+	public function getView($controller, $options = null)
 	{
 		global $template, $action, $view, $name;
+		$tmpGET = $_GET;
+		if ($options != null)
+		{
+			foreach ($options as $key => $value)
+			{
+				$_GET[$key] = $value;
+			}
+		}
 		$controller.='Controller';
 		//Guardamos el estado del framework
 		$tmpView = $view;
@@ -27,6 +35,25 @@ class ViewHelper
 		$template = $tmpTemplate;
 		$view = $tmpView;
 		$name = $tmpName;
+
+		$_GET = $tmpGET;
+	}
+
+	public static function loadLibrary($lib)
+	{
+		if (file_exists("libraries/$lib/$lib".".php"))
+		{
+			global $loader;
+			if(is_dir("libraries/$lib/handlers"))
+			{
+				$loader->loadHandlers("libraries/$lib/handlers");
+			}
+			require_once("libraries/$lib/$lib".".php");
+		}
+		else
+		{
+			$this->errors->addError($this->translator->trans('NO_LIB'));
+		}
 	}
 
 	public function __construct()

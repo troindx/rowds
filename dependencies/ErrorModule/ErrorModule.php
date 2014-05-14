@@ -16,11 +16,35 @@ class ErrorModule
 		return $number;
 	}
 	
-	public function addError($msg)
+	/*
+	 * Si die = 0 no hace nada, si die = 1 escupe los errores y muere
+	 * si die = 2 los imprime en json y muere
+	 */
+	public function addError($msg, $die = 0)
 	{
 		
 		$this->errors[$this->number]= $msg;
 		$this->number++;
+		if ($die == 1)
+		{
+			$this->printErrors();
+			die(10);
+		}
+		if ($die == 2)
+		{
+			JSONHandler::sendResponse(0,$this->errors);
+			die(10);
+		}
+	}
+
+	public function addErrorAndDie($msg)
+	{
+		$this->addError($msg,1);
+	}
+
+	public function addErrorAndDieJSON($msg)
+	{
+		$this->addError($msg,2);
 	}
 	
 	public function getErrors()
