@@ -3,7 +3,7 @@ class Session
 {
 	public function __construct()
 	{
-		//session_set_cookie_params(DEFAULT_SESSION_TIME);
+		session_set_cookie_params(DEFAULT_SESSION_TIME);
 		session_start();
 		if (!isset($_SESSION['AUTH_TOKEN']) )
 		{

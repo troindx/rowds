@@ -3,6 +3,7 @@
 class JSONResponseData{
     public $msg = null;
     public $value = 1;
+    public $errors = null;
     public function __construct($value = 1, $msg = null)
     {
         $this->msg = $msg;
@@ -31,6 +32,7 @@ class JSONHandler
         }
         else
         {
+            $result->errors = error_get_last();
             echo json_encode($result, $options);
         }
  
@@ -63,6 +65,21 @@ class JSONHandler
         }
         else
         {
+            $result->errors = error_get_last();
+            echo json_encode($result, 0);
+        }
+    }
+
+    public static function sendFail($msg)
+    {
+        $result = new JSONResponseData(0, $msg);
+        if(!$result)
+        {
+            throw new RuntimeException(static::$_messages[json_last_error()]);
+        }
+        else
+        {
+            $result->errors = error_get_last();
             echo json_encode($result, 0);
         }
     }

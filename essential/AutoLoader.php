@@ -69,7 +69,7 @@ class AutoLoader
 		}
 		else $this->scripts = null;
 	}
-	
+
 	public function printScripts($view)
 	{
 		if ($this->scripts != null)
