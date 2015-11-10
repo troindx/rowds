@@ -54,13 +54,16 @@ class ErrorModule
 	
 	public function printErrors()
 	{
+		global $Translator;
+
+		echo '<div class="errorContainer"><h1 class="error">'.$Translator->trans('ERROR_IN_ROWDS').'</h1>';
 		echo '<p class="errors"> ';
 		foreach ($this->errors as $error)
 		{
 			echo $error;
 			echo '<br/>';
 		}
-		echo '</p>';
+		echo '</p></div>';
 	}
 	
 	public function hasErrors()

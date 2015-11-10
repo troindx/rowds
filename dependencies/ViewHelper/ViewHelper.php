@@ -12,7 +12,7 @@ class ViewHelper
 
 	public function getView($controller, $options = null)
 	{
-		global $template, $action, $view, $name;
+		global $template, $action, $view, $name, $DBODB_GLOBAL;
 		$tmpGET = $_GET;
 		if ($options != null)
 		{
@@ -25,6 +25,9 @@ class ViewHelper
 		//Guardamos el estado del framework
 		$tmpView = $view;
 		$tmpName = $name;
+		$tmpDBODB_GLOBAL = $DBODB_GLOBAL;
+		//Restart the DBODBGlobal for PDO transacts
+		$DBODB_GLOBAL = NULL;
 		$tmpTemplate = $template;
 		$tmpAction = $action;
 		//Ejecutamos la acción invocando a su correspondiente controlador
@@ -35,25 +38,10 @@ class ViewHelper
 		$template = $tmpTemplate;
 		$view = $tmpView;
 		$name = $tmpName;
+		//RESTORE the DBODBGlobal Object for PDO
+		$DBODB_GLOBAL = $tmpDBODB_GLOBAL;
 
 		$_GET = $tmpGET;
-	}
-
-	public static function loadLibrary($lib)
-	{
-		if (file_exists("libraries/$lib/$lib".".php"))
-		{
-			global $loader;
-			if(is_dir("libraries/$lib/handlers"))
-			{
-				$loader->loadHandlers("libraries/$lib/handlers");
-			}
-			require_once("libraries/$lib/$lib".".php");
-		}
-		else
-		{
-			$this->errors->addError($this->translator->trans('NO_LIB'));
-		}
 	}
 
 	public function __construct()
@@ -64,6 +52,8 @@ class ViewHelper
 		$this->template = TEMPLATE_DEFAULT;
 		$this->view = new stdClass;
 		global $ErrorModule;
+		global $Translator;
+		$Translator = $this->translator;
 		$ErrorModule = $this->errors;
 		$generated = 0;
 	}

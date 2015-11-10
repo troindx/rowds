@@ -11,7 +11,7 @@ Class LogHandler
 	 */
 	public static function log($cadena,$tipo)
 	{
-		$arch = fopen(realpath( '.' )."/logs/log_".date("Y-m").".txt", "a+"); 
+		$arch = fopen(realpath( '.' )."/logs/log_".date("Y-m").".txt", "a"); 
 
 		fwrite($arch, "[".date("Y-m-d H:i:s.u")." ".$_SERVER['REMOTE_ADDR']." - $tipo ] ".$cadena."\n");
 		fclose($arch);

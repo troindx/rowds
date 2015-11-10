@@ -44,6 +44,8 @@ Class Translator
 		{
 			include("lang/$tmp/$route.php");
 			$this->strings = $var_strings;
+			include("lang/$tmp/system.php");
+			$this->strings = array_merge($this->strings, $var_strings);
 		}
 		else $this->strings = null;
 		

@@ -17,7 +17,11 @@ class Session
 	
 	public function start()
 	{
-		//session_set_cookie_params(DEFAULT_SESSION_TIME);
+		// server should keep session data for AT LEAST  DEFAULT_SESSION_TIME
+		ini_set('session.gc_maxlifetime', DEFAULT_SESSION_TIME);
+
+		// each client should remember their session id for EXACTLY 1 hour
+		session_set_cookie_params(DEFAULT_SESSION_TIME);
 		session_start();	
 		setcookie(session_name(),session_id(),time()+DEFAULT_SESSION_TIME,'', BASE_URL);
 	}

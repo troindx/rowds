@@ -95,6 +95,27 @@ class AutoLoader
 			echo "<script language='javascript' src='".BASE_URL."modules/$view/js/$action.js'></script>";
 		}
 	}
+
+	public static function loadLibrary($lib)
+	{
+		if (file_exists("libraries/$lib/$lib".".php"))
+		{
+			global $loader;
+			if(is_dir("libraries/$lib/handlers"))
+			{
+				$loader->loadHandlers("libraries/$lib/handlers");
+			}
+			require_once("libraries/$lib/$lib".".php");
+		}
+		else
+		{
+			if (array_key_exists('ErrorModule', $GLOBALS) && array_key_exists('Translator', $GLOBALS))
+			{
+				global $ErrorModule, $Translator;
+				$ErrorModule->addErrorAndDie($Translator->trans('NO_LIB'));
+			}
+		}
+	}
 }
 
 
