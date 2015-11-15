@@ -12,3 +12,5 @@ You can send comments and bugs and anything you want to troindx@gmail.com
 No installing needed.
 Decompress zipfile on your htdocs (or similar) web server folder.
 DONE!
+
+PLEASE CHECK OUT THE GITHUB WIKI FOR INFORMATION AND TUTORIALS AND DOCUMENTATION
