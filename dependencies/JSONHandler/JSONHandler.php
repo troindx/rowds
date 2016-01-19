@@ -25,10 +25,17 @@ class JSONHandler
     
     public static function sendResponse($value=1, $msg = null, $options = 0) 
     {
+        global $ErrorModule;
+
         $result = new JSONResponseData($value, $msg);
         if(!$result)
         {
             throw new RuntimeException(static::$_messages[json_last_error()]);
+        }
+        else if ($ErrorModule->hasErrors())
+        {
+            $ErrorModule->printErrors();
+            die(11);
         }
         else
         {
@@ -58,10 +65,16 @@ class JSONHandler
      */
     public static function sendOK()
     {
+        global $ErrorModule;
         $result = new JSONResponseData(1, null);
         if(!$result)
         {
             throw new RuntimeException(static::$_messages[json_last_error()]);
+        }
+        else if ($ErrorModule->hasErrors())
+        {
+            $ErrorModule->printErrors();
+            die(11);
         }
         else
         {
@@ -72,10 +85,16 @@ class JSONHandler
 
     public static function sendFail($msg)
     {
+        global $ErrorModule;
         $result = new JSONResponseData(0, $msg);
         if(!$result)
         {
             throw new RuntimeException(static::$_messages[json_last_error()]);
+        }
+        else if ($ErrorModule->hasErrors())
+        {
+            $ErrorModule->printErrors();
+            die(11);
         }
         else
         {
