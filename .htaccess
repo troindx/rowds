@@ -1,14 +1,15 @@
-RewriteEngine On    # Turn on the rewriting engine
-RewriteCond %{SCRIPT_FILENAME} -f
+#Encender el mod_rewrite
+RewriteEngine On
+
+#Comprobar que el fichero no existe. (si el fichero existe, para)
+RewriteCond 	%{SCRIPT_FILENAME} -f
 RewriteRule 	^ - [L]
-RewriteRule     ^([A-Za-z0-9-]+)/?$ index.php?option=$1&action=main [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2 [NC,L]
-RewriteRule 	^(uploads)($|/) - [L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?option=$1&action=$2&$3=$4 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2&$3=$4 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2&$3=$4&$5=$6 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?option=$1&action=$2&$3=$4&$5=$6 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2&$3=$4&$5=$6&$7=$8 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?option=$1&action=$2&$3=$4&$5=$6&$7=$8 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ index.php?option=$1&action=$2&$3=$4&$5=$6&$7=$8&$9=$10 [NC,L]
-RewriteRule     ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?option=$1&action=$2&$3=$4&$5=$6&$7=$8&$9=$10 [NC,L]
+
+#primeros casos básicos
+RewriteRule ^(\w+)/(\w+)(/?)$ index.php?option=$1&action=$2 [NC,L]
+RewriteRule ^(\w+)(/?)$ index.php?option=$1&action=main [NC,L]
+
+
+#Caso con variables.
+RewriteRule ^(\w+)/(\w+)/(\w+)/(\w+)(/?)$ index.php?option=$1&action=$2&$3=$4 [NC,L]
+RewriteRule ^(.*)/(\w+)/(\w+)(/?)$ $1&$2=$3 [QSA,N]
