@@ -2,14 +2,16 @@
 RewriteEngine On
 
 #Comprobar que el fichero no existe. (si el fichero existe, para)
+RewriteRule 	^(uploads)($|/) - [END]
 RewriteCond 	%{SCRIPT_FILENAME} -f
 RewriteRule 	^ - [L]
 
-#primeros casos básicos
-RewriteRule ^(\w+)/(\w+)(/?)$ index.php?option=$1&action=$2 [NC,L]
-RewriteRule ^(\w+)(/?)$ index.php?option=$1&action=main [NC,L]
+
+#primeros casos básicos sin variables
+RewriteRule ^(\w+)/(\w+)(/?)$ index.php?option=$1&action=$2 [NC,END,NE,DPI]
+RewriteRule ^(\w+)(/?)$ index.php?option=$1&action=main [NC,END,NE,DPI]
 
 
 #Caso con variables.
-RewriteRule ^(\w+)/(\w+)/(\w+)/(\w+)(/?)$ index.php?option=$1&action=$2&$3=$4 [NC,L]
-RewriteRule ^(.*)/(\w+)/(\w+)(/?)$ $1&$2=$3 [QSA,N]
+RewriteRule ^(\w+)/(\w+)(/?)(&.*)$ index.php?option=$1&action=$2$4 [NC,END,NE,DPI]
+RewriteRule ^(.*)/(\w+)/(\w+)(/?)(.*)$ $1/&$2=$3$5 [N,NC,NE,DPI]
