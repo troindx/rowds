@@ -96,7 +96,7 @@ class AutoLoader
 		}
 	}
 
-	public static function loadLibrary($lib)
+	public static function loadLibrary($lib, $loader= null )
 	{
 		if (file_exists("libraries/$lib/$lib".".php"))
 		{
@@ -107,8 +107,21 @@ class AutoLoader
 			}
 			require_once("libraries/$lib/$lib".".php");
 		}
+		else if ($loader != null)
+		{
+			if (file_exists("libraries/$lib/$loader".".php"))
+			{
+				global $loader;
+				if(is_dir("libraries/$lib/handlers"))
+				{
+					$loader->loadHandlers("libraries/$lib/handlers");
+				}
+				require_once("libraries/$lib/$loader".".php");
+			}
+		}
 		else
 		{
+			
 			if (array_key_exists('ErrorModule', $GLOBALS) && array_key_exists('Translator', $GLOBALS))
 			{
 				global $ErrorModule, $Translator;
