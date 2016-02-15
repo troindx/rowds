@@ -109,7 +109,7 @@ class AutoLoader
 		}
 		else if ($autoloader != null)
 		{
-			if (file_exists("libraries/$lib/$loader".".php"))
+			if (file_exists("libraries/$lib/$autoloader".".php"))
 			{
 				global $loader;
 				if(is_dir("libraries/$lib/handlers"))
