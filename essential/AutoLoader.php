@@ -96,7 +96,7 @@ class AutoLoader
 		}
 	}
 
-	public static function loadLibrary($lib, $loader= null )
+	public static function loadLibrary($lib, $autoloader= null )
 	{
 		if (file_exists("libraries/$lib/$lib".".php"))
 		{
@@ -107,7 +107,7 @@ class AutoLoader
 			}
 			require_once("libraries/$lib/$lib".".php");
 		}
-		else if ($loader != null)
+		else if ($autoloader != null)
 		{
 			if (file_exists("libraries/$lib/$loader".".php"))
 			{
@@ -116,7 +116,7 @@ class AutoLoader
 				{
 					$loader->loadHandlers("libraries/$lib/handlers");
 				}
-				require_once("libraries/$lib/$loader".".php");
+				require_once("libraries/$lib/$autoloader".".php");
 			}
 		}
 		else
